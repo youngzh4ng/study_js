@@ -6,8 +6,8 @@ const path = require('path');
 const port = 3001;
 
 const about = ctx => {
-    ctx.response.type = 'html';
-    ctx.response.body = '<a href="/">Index Page</a>';
+    ctx.type = 'html';
+    ctx.body = '<a href="/">Index Page</a>';
 };
 
 const logger = (ctx, next) => {
@@ -19,9 +19,9 @@ const handler = async (ctx, next) => {
     try {
         await next();
     } catch (err) {
-        ctx.response.status = err.statusCode || err.status || 500;
-        ctx.response.type = 'html';
-        ctx.response.body = '<p>Something wrong, please contact administrator.</p>';
+        ctx.status = err.statusCode || err.status || 500;
+        ctx.type = 'html';
+        ctx.body = '<p>Something wrong, please contact administrator.</p>';
         ctx.app.emit('error', err, ctx);
     }
 };

@@ -1,0 +1,11 @@
+{
+  "name": "NODE_PRS_CID",
+  "version": "0.0.1",
+  "moduleType": [
+    "node"
+  ],
+  "dependencies": {
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
+  }
+}
